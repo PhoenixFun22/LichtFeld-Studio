@@ -216,3 +216,12 @@ jobs:
           }
           Write-Host "Found nvJPEG2000 runtime: $runtime"
           $extensions | ForEach-Object { Write-Host "Found nvjpeg2k extension: $($_.FullName)" }
+
+      - name: Upload LichtFeld Studio Binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: LichtFeld-Studio-${{ matrix.build_type }}
+          path: |
+            b/**/*.exe
+            b/**/*.dll
+            b/bin/
